@@ -1,11 +1,8 @@
 import React, { useState } from 'react';
 import {
   StyleSheet,
-  Text,
   View,
-  TextInput,
   Button,
-  FlatView,
   FlatList
 } from 'react-native';
 import GoalItem from "./components/GoalItem"
@@ -14,6 +11,7 @@ import GoalInput from "./components/GoalInput"
 export default function App() {
 
   const [courseGoals, setCourseGoals] = useState([])
+  const [isAddMode, setAddMode] = useState(false)
 
   const addGoalHandler = (enteredGoal) => {
     setCourseGoals(courseGoals => [...courseGoals, { id: Math.random().toString(), value: enteredGoal }])
@@ -27,7 +25,13 @@ export default function App() {
 
   return (
     <View style={styles.screen}>
-      <GoalInput addGoalHandler={addGoalHandler} />
+      <Button title="Add New Goal" 
+      onPress=  {()=>setAddMode(true)}   
+      />
+      <GoalInput 
+      addGoalHandler={addGoalHandler} 
+      visible={isAddMode}
+      />
       <FlatList
         keyExtractor={(item, index) => item.id}
         data={courseGoals}
