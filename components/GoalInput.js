@@ -23,21 +23,22 @@ const GoalInput = (props) => {
                     onPress={() => props.addGoalHandler(enteredGoal)}
                 />
             </View>
-        </Modal>
+     </Modal>
     )
 }
 
 const styles = StyleSheet.create({
     inputContainer: {
-        flexDirection: "row",
-        justifyContent: "space-between",
+        flex: 1,
+        justifyContent: "center",
         alignItems: "center"
     },
     input: {
         width: "80%",
         borderWidth: 1,
         borderColor: "black",
-        padding: 10
+        padding: 10,
+        marginBottom:10
     }
 })
 
