@@ -29,6 +29,9 @@ export default function App() {
       <Button title="Add New Goal" 
       onPress=  {()=>setAddMode(true)}   
       />
+       <Button title="Clear All Goal" 
+      onPress=  {()=>setCourseGoals([])}   
+      />
       <GoalInput 
       addGoalHandler={addGoalHandler} 
       visible={isAddMode}
